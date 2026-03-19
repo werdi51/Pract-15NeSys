@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anton\\Desktop\\Pract15\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|c:\\users\\anton\\desktop\\pract15\\pract15\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|solutionrelative:pract15\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|c:\\users\\anton\\desktop\\pract15\\pract15\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|solutionrelative:pract15\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|c:\\users\\anton\\desktop\\pract15\\pract15\\dbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|solutionrelative:pract15\\dbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|c:\\users\\anton\\desktop\\pract15\\pract15\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|solutionrelative:pract15\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|c:\\users\\anton\\desktop\\pract15\\pract15\\models\\pract15trpocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|solutionrelative:pract15\\models\\pract15trpocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|c:\\users\\anton\\desktop\\pract15\\pract15\\models\\form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D3A7F1-B078-466A-A16D-8171C4EFF15B}|Pract15\\Pract15.csproj|solutionrelative:pract15\\models\\form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DBService.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\DBService.cs",
+              "RelativeDocumentMoniker": "Pract15\\DBService.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\DBService.cs",
+              "RelativeToolTip": "Pract15\\DBService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:08:34.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\App.xaml",
+              "RelativeDocumentMoniker": "Pract15\\App.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\App.xaml",
+              "RelativeToolTip": "Pract15\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-19T16:52:42.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\Models\\Form.cs",
+              "RelativeDocumentMoniker": "Pract15\\Models\\Form.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\Models\\Form.cs",
+              "RelativeToolTip": "Pract15\\Models\\Form.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T16:43:31.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Pract15TrpoContext.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\Models\\Pract15TrpoContext.cs",
+              "RelativeDocumentMoniker": "Pract15\\Models\\Pract15TrpoContext.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\Models\\Pract15TrpoContext.cs",
+              "RelativeToolTip": "Pract15\\Models\\Pract15TrpoContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T16:43:07.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Pract15\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\MainWindow.xaml",
+              "RelativeToolTip": "Pract15\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-19T15:58:19.243Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Pract15\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\Pract15\\Pract15\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Pract15\\MainWindow.xaml.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAMwEUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T15:58:13.741Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
