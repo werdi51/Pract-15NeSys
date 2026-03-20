@@ -1,0 +1,237 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\pages\\mainform.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\pages\\mainform.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\pages\\mainform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\pages\\mainform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\models\\pract15trpoelectroshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\models\\pract15trpoelectroshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\models\\producttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\models\\producttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\models\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\models\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\dbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\dbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\pages\\autorisation.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\pages\\autorisation.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\pages\\autorisation.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\pages\\autorisation.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|c:\\users\\anton\\desktop\\trpo15\\pract 15_true\\pract 15\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3DDDDA0E-F11D-4F50-9B0A-63E30C92A902}|Pract 15\\Pract 15.csproj|solutionrelative:pract 15\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Pract 15\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\MainWindow.xaml",
+              "RelativeToolTip": "Pract 15\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-20T18:09:07.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Brand.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Brand.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Models\\Brand.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Brand.cs",
+              "RelativeToolTip": "Pract 15\\Models\\Brand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:49:58.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Category.cs",
+              "RelativeToolTip": "Pract 15\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:49:57.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductTag.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\ProductTag.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Models\\ProductTag.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\ProductTag.cs",
+              "RelativeToolTip": "Pract 15\\Models\\ProductTag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:49:53.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Tag.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Tag.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Models\\Tag.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Tag.cs",
+              "RelativeToolTip": "Pract 15\\Models\\Tag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:49:52.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Product.cs",
+              "RelativeToolTip": "Pract 15\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:49:49.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DBService.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\DBService.cs",
+              "RelativeDocumentMoniker": "Pract 15\\DBService.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\DBService.cs",
+              "RelativeToolTip": "Pract 15\\DBService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:33:00.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\MainForm.xaml.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Pages\\MainForm.xaml.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\MainForm.xaml.cs*",
+              "RelativeToolTip": "Pract 15\\Pages\\MainForm.xaml.cs*",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAowOgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:09:52.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Autorisation.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\Autorisation.xaml.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Pages\\Autorisation.xaml.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\Autorisation.xaml.cs",
+              "RelativeToolTip": "Pract 15\\Pages\\Autorisation.xaml.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAB4AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:59:19.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Autorisation.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\Autorisation.xaml",
+              "RelativeDocumentMoniker": "Pract 15\\Pages\\Autorisation.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\Autorisation.xaml",
+              "RelativeToolTip": "Pract 15\\Pages\\Autorisation.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-20T16:53:08.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\MainForm.xaml",
+              "RelativeDocumentMoniker": "Pract 15\\Pages\\MainForm.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Pages\\MainForm.xaml*",
+              "RelativeToolTip": "Pract 15\\Pages\\MainForm.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-20T16:51:14.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\App.xaml",
+              "RelativeDocumentMoniker": "Pract 15\\App.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\App.xaml",
+              "RelativeToolTip": "Pract 15\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-20T16:09:09.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Pract15TrpoElectroShopContext.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Pract15TrpoElectroShopContext.cs",
+              "RelativeDocumentMoniker": "Pract 15\\Models\\Pract15TrpoElectroShopContext.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\TRPO15\\Pract 15_True\\Pract 15\\Models\\Pract15TrpoElectroShopContext.cs",
+              "RelativeToolTip": "Pract 15\\Models\\Pract15TrpoElectroShopContext.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAIwEQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T16:07:03.714Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
