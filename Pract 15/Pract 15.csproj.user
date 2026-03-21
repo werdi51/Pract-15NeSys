@@ -14,5 +14,8 @@
     <Compile Update="Pages\AdminPagesEdit\TagAddOrEdit.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\Set\SetTags.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

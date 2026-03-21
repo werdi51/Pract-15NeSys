@@ -163,3 +163,6 @@ C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pa
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\BrandAddOrEdit.g.cs
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\ProductAddOrEdit.g.cs
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\TagAddOrEdit.g.cs
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\BrandAddOrEdit.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\ProductAddOrEdit.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\TagAddOrEdit.baml
