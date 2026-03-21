@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pract_15.Pages.AdminPagesEdit;
 
 namespace Pract_15.Pages.AdminPages
 {
@@ -47,9 +48,9 @@ namespace Pract_15.Pages.AdminPages
         }
         
         private void Back_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
-        private void Add_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Открыть окно добавления категории");
+        private void Add_Click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new TagAddOrEdit());
         private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedTag?.Name}");
-        private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => MessageBox.Show($"Редактировать категорию: {SelectedTag?.Name}");
+        private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => NavigationService.Navigate(new TagAddOrEdit(SelectedTag));
 
 
 

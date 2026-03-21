@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pract_15.Pages.Set;
 
 namespace Pract_15.Pages.AdminPages
 {
@@ -52,6 +53,18 @@ namespace Pract_15.Pages.AdminPages
         private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedProduct?.Name}");
         private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => NavigationService?.Navigate(new ProductAddOrEdit(SelectedProduct));
 
+        private void TagAddToProducr_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = productsListView.SelectedItem as Product;
 
+            if (selected != null)
+            {
+                NavigationService?.Navigate(new SetTags(selected));
+            }
+            else
+            {
+                MessageBox.Show("Сначала выберите товар в списке!");
+            }
+        }
     }
 }

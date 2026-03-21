@@ -20,11 +20,12 @@
             <Button Click="Back_Click">Назад</Button>
             <Button Click="Add_Click">Добавить</Button>
             <Button Click="Delete_Click">Удалить</Button>
+            <Button Name="TagAddToProducr" Click="TagAddToProducr_Click" Content="Назначить еги"/>
         </StackPanel>
 
         <ListView Grid.Row="1" 
+          x:Name="productsListView"
           ItemsSource="{Binding Product}"
-          SelectedItem="{Binding SelectedProduct}"
           MouseDoubleClick="Edit_DoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>

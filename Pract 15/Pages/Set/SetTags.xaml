@@ -5,10 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pract_15.Pages.Set"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SetTags">
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="Настройка тегов"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding ProductTitle}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding TagItems}" Name="lvTags">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsSelected}" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="{Binding Tag.Name}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Сохранить" Click="Save_Click" Width="100" Margin="0,0,10,0"/>
+            <Button Content="Назад" Click="Back_Click" Width="100"/>
+        </StackPanel>
     </Grid>
 </Page>
