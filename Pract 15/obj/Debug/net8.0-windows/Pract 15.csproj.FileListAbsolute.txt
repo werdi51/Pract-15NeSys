@@ -149,3 +149,12 @@ C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pa
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\App.baml
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\Autorisation.baml
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\MainForm.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pract 15.sourcelink.json
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowBrand.g.cs
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowCategory.g.cs
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowProduct.g.cs
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowTag.g.cs
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowBrand.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowCategory.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowProduct.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPages\ShowTag.baml

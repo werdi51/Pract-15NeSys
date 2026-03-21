@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Pract_15.Pages.AdminPages;
 
 namespace Pract_15.Pages
 {
@@ -76,6 +77,27 @@ namespace Pract_15.Pages
         {
             InitializeComponent();
             DataContext = this;
+            if (admin)
+            AdminAccess.Visibility = Visibility.Visible;
+        }
+        private void NavigateToProductsManagement(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ShowProduct());
+        }
+
+        private void NavigateToCategoriesManagement(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ShowCategory());
+        }
+
+        private void NavigateToBrandsManagement(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ShowBrand());
+        }
+
+        private void NavigateToTagsManagement(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ShowTag());
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
@@ -83,24 +105,26 @@ namespace Pract_15.Pages
             await LoadData();
         }
 
-        private async System.Threading.Tasks.Task LoadData()
+        private async Task LoadData()
         {
             try
             {
                 var context = DBService.Instance.Context;
+
+                // Загружаем товары с категориями и брендами
                 _allProducts = await context.Products
                     .Include(p => p.Category)
                     .Include(p => p.Brand)
                     .ToListAsync();
 
-                // Категории с пунктом "Все" (Id = -1)
+                // Категории с пунктом "Все"
                 var categories = await context.Categories.ToListAsync();
                 Categories.Clear();
                 Categories.Add(new Category { Id = -1, Name = "Все" });
                 foreach (var cat in categories)
                     Categories.Add(cat);
 
-                // Бренды с пунктом "Все" (Id = -1)
+                // Бренды с пунктом "Все"
                 var brands = await context.Brands.ToListAsync();
                 Brands.Clear();
                 Brands.Add(new Brand { Id = -1, Name = "Все" });
@@ -134,13 +158,13 @@ namespace Pract_15.Pages
                 if (!match) return false;
             }
 
-            // Категория (пропускаем, если выбрано "Все" = -1)
+            // Категория
             if (SelectedCategoryId.HasValue && SelectedCategoryId.Value != -1)
             {
                 if (p.CategoryId != SelectedCategoryId.Value) return false;
             }
 
-            // Бренд (пропускаем, если выбрано "Все" = -1)
+            // Бренд
             if (SelectedBrandId.HasValue && SelectedBrandId.Value != -1)
             {
                 if (p.BrandId != SelectedBrandId.Value) return false;
