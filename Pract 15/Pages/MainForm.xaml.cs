@@ -115,6 +115,7 @@ namespace Pract_15.Pages
                 _allProducts = await context.Products
                     .Include(p => p.Category)
                     .Include(p => p.Brand)
+                    .Include(p => p.Tags) // <--- ВОТ ТУТ
                     .ToListAsync();
 
                 // Категории с пунктом "Все"

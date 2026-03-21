@@ -12,13 +12,9 @@
         <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- меню админа -->
             <RowDefinition Height="70"/>
-            <!-- поиск -->
             <RowDefinition Height="*"/>
-            <!-- основное содержимое -->
             <RowDefinition Height="30"/>
-            <!-- статус -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -33,15 +29,12 @@
             <Button Content="Управление тегами" Margin="5" Click="NavigateToTagsManagement"/>
         </StackPanel>
 
-        
-        <!-- Поиск -->
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <Label>Поиск</Label>
                 <TextBox Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" 
                          TextChanged="SearchTextChanged"/>
             </StackPanel>
 
-            <!-- Левая панель -->
             <StackPanel Grid.Row="2" Grid.Column="0">
                 <Label>Сортировка</Label>
                 <ComboBox SelectionChanged="SortingChanged">
@@ -79,7 +72,6 @@
                 <Button Click="ResetFilters_Click" Margin="5">Сбросить</Button>
             </StackPanel>
 
-            <!-- Список товаров с карточками -->
             <Border Grid.Row="2" Grid.Column="1" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
                 <ListView ItemsSource="{Binding ProductsView}" Name="ProductsList" 
                           HorizontalContentAlignment="Stretch"
@@ -93,7 +85,6 @@
                                     <ColumnDefinition Width="120"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Левая колонка: основная информация -->
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="{Binding Name}" 
                            FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
@@ -106,9 +97,23 @@
                            FontSize="12" FontWeight="SemiBold" Margin="0,0,0,2"/>
                                     <TextBlock Text="{Binding Description}" 
                            TextWrapping="Wrap" Margin="0,2,0,5"/>
+                                    <ItemsControl ItemsSource="{Binding Tags}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="#F0F0F0" BorderBrush="#CCC" BorderThickness="1" CornerRadius="5" Margin="0,0,5,5" Padding="5,2">
+                                                    <TextBlock Text="{Binding Name}" FontSize="10" Foreground="#555" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
                                 </StackPanel>
 
-                                <!-- Правая колонка: цена и остаток -->
                                 <Grid Grid.Column="1">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>

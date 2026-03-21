@@ -21,8 +21,6 @@ public partial class Pract15TrpoElectroShopContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<ProductTag> ProductTags { get; set; }
-
     public virtual DbSet<Tag> Tags { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -78,25 +76,25 @@ public partial class Pract15TrpoElectroShopContext : DbContext
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
                 .HasConstraintName("FK_products_categories");
-        });
 
-        modelBuilder.Entity<ProductTag>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToTable("product_tags");
-
-            entity.Property(e => e.ProductId).HasColumnName("product_id");
-            entity.Property(e => e.TagId).HasColumnName("tag_id");
-
-            entity.HasOne(d => d.Product).WithMany()
-                .HasForeignKey(d => d.ProductId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_product_tags_products");
-
-            entity.HasOne(d => d.Tag).WithMany()
-                .HasForeignKey(d => d.TagId)
-                .HasConstraintName("FK_product_tags_tags");
+            entity.HasMany(d => d.Tags).WithMany(p => p.Products)
+                .UsingEntity<Dictionary<string, object>>(
+                    "ProductTag",
+                    r => r.HasOne<Tag>().WithMany()
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_product_tags_tags"),
+                    l => l.HasOne<Product>().WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_product_tags_products"),
+                    j =>
+                    {
+                        j.HasKey("ProductId", "TagId");
+                        j.ToTable("product_tags");
+                        j.IndexerProperty<double>("ProductId").HasColumnName("product_id");
+                        j.IndexerProperty<double>("TagId").HasColumnName("tag_id");
+                    });
         });
 
         modelBuilder.Entity<Tag>(entity =>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pract_15.Models;
+using Pract_15.Pages.AdminPagesEdit;
 using Pract15;
 using System;
 using System.Collections.Generic;
@@ -47,9 +48,9 @@ namespace Pract_15.Pages.AdminPages
         }
 
         private void Back_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
-        private void Add_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Открыть окно добавления категории");
+        private void Add_Click(object sender, RoutedEventArgs e) => NavigationService?.Navigate(new ProductAddOrEdit());
         private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedProduct?.Name}");
-        private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => MessageBox.Show($"Редактировать категорию: {SelectedProduct?.Name}");
+        private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => NavigationService?.Navigate(new ProductAddOrEdit(SelectedProduct));
 
 
     }

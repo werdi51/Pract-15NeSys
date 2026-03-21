@@ -24,6 +24,7 @@ public partial class Product
     public double? BrandId { get; set; }
 
     public virtual Brand? Brand { get; set; }
-    public List<Tag> Tags { get; set; } = new List<Tag>();
+
     public virtual Category? Category { get; set; }
+    public virtual ICollection<Tag> Tags { get; set; } = new List<Tag>();
 }

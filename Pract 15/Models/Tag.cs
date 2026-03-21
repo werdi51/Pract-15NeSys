@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pract_15.Models;
 
@@ -10,4 +9,5 @@ public partial class Tag
 
     public string? Name { get; set; }
 
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

@@ -24,7 +24,7 @@ namespace Pract_15.Pages.AdminPages
     /// </summary>
     public partial class ShowTag : Page
     {
-        public ObservableCollection<Tag> Tag { get; set; } = new ObservableCollection<Tag>();
+        public ObservableCollection<Tag> Tags { get; set; } = new ObservableCollection<Tag>();
         public Tag SelectedTag { get; set; }
 
         public ShowTag()
@@ -42,10 +42,10 @@ namespace Pract_15.Pages.AdminPages
         {
             var context = DBService.Instance.Context;
             var items = await context.Tags.ToListAsync();
-            Tag.Clear();
-            foreach (var i in items) Tag.Add(i);
+            Tags.Clear();
+            foreach (var i in items) Tags.Add(i);
         }
-
+        
         private void Back_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
         private void Add_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Открыть окно добавления категории");
         private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedTag?.Name}");
