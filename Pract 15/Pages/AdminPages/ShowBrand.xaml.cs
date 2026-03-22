@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pract_15.Pages.AdminPagesEdit;
 
 namespace Pract_15.Pages.AdminPages
 {
@@ -61,26 +62,51 @@ namespace Pract_15.Pages.AdminPages
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            // Здесь вы откроете своё окно добавления бренда
-            MessageBox.Show("Открыть окно добавления бренда");
+            NavigationService.Navigate(new BrandAddOrEdit());
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        private async void Delete_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedBrand == null)
             {
-                MessageBox.Show("Выберите элемент для удаления.");
+                MessageBox.Show("Выберите бренд для удаления.");
                 return;
             }
-            // Здесь вы вызовете своё окно подтверждения или удаление
-            MessageBox.Show($"Удалить бренд: {SelectedBrand.Name}");
+
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить бренд: {SelectedBrand.Name}?",
+                "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var context = DBService.Instance.Context;
+                    var brandToDelete = await context.Brands.FindAsync(SelectedBrand.Id);
+
+                    if (brandToDelete != null)
+                    {
+                        context.Brands.Remove(brandToDelete);
+                        await context.SaveChangesAsync();
+
+                        context.ChangeTracker.Clear();
+                        Brands.Remove(SelectedBrand);
+
+                        MessageBox.Show("Бренд удален.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка удаления: {ex.Message}");
+                    DBService.Instance.Context.ChangeTracker.Clear();
+                }
+            }
         }
 
         private void Edit_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (SelectedBrand == null) return;
-            // Здесь вы откроете окно редактирования бренда
-            MessageBox.Show($"Редактировать бренд: {SelectedBrand.Name}");
+            NavigationService.Navigate(new BrandAddOrEdit(SelectedBrand));
+
         }
     }
 }

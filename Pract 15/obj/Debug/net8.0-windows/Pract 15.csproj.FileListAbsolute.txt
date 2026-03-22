@@ -168,3 +168,4 @@ C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pa
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\AdminPagesEdit\TagAddOrEdit.baml
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\Set\SetTags.g.cs
 C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\Pages\Set\SetTags.baml
+C:\Users\anton\Desktop\TRPO15\Pract 15_True\Pract 15\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs

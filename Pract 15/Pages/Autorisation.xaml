@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Pract_15.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Autorisation">
+      Title="авторизаүиә"
+      Background="{StaticResource MainBackgroundBrush}" Cursor="Hand">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

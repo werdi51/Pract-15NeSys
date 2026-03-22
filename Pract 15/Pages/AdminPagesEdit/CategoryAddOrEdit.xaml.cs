@@ -2,7 +2,9 @@
 using Pract15;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,68 +22,71 @@ namespace Pract_15.Pages.AdminPagesEdit
     /// <summary>
     /// Логика взаимодействия для CategoryAddOrEdit.xaml
     /// </summary>
-    public partial class CategoryAddOrEdit : Page
+    public partial class CategoryAddOrEdit : Page, INotifyPropertyChanged
     {
-        private Category _editingCategory; 
+        private Category _editingCategory;
+        private string _categoryName;
+
+        public string CategoryName
+        {
+            get => _categoryName;
+            set { _categoryName = value; OnPropertyChanged(); }
+        }
 
         public CategoryAddOrEdit(Category category = null)
         {
             InitializeComponent();
-            if (category != null)
+            _editingCategory = category;
+
+            if (_editingCategory != null)
             {
-                _editingCategory = category;
+                CategoryName = _editingCategory.Name;
                 Title = "Редактирование категории";
-                txtName.Text = category.Name;
             }
             else
             {
                 Title = "Добавление категории";
             }
+
+            DataContext = this; 
             txtName.Focus();
         }
 
         private async void Ok_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            if (Validation.GetHasError(txtName))
             {
-                MessageBox.Show("Название не может быть пустым.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Исправьте ошибки в названии.");
                 return;
             }
 
             try
             {
                 var context = DBService.Instance.Context;
-                string newName = txtName.Text.Trim();
+                context.ChangeTracker.Clear();
 
                 if (_editingCategory == null)
                 {
-                    var newCategory = new Category { Name = newName };
+                    int maxId = context.Categories.Any() ? (int)context.Categories.Max(c => c.Id) : 0;
+                    var newCategory = new Category { Id = maxId + 1, Name = CategoryName.Trim() };
                     context.Categories.Add(newCategory);
-                    await context.SaveChangesAsync();
                 }
                 else
                 {
                     var category = await context.Categories.FindAsync(_editingCategory.Id);
-                    if (category != null)
-                    {
-                        category.Name = newName;
-                        await context.SaveChangesAsync();
-                        _editingCategory.Name = newName;
-                    }
+                    if (category != null) category.Name = CategoryName.Trim();
                 }
+
+                await context.SaveChangesAsync();
                 NavigationService?.GoBack();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка сохранения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            catch (Exception ex) { MessageBox.Show($"Ошибка: {ex.Message}"); }
         }
 
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.GoBack();
-        }   
-    }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
-    
+        private void Cancel_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
+    }
 }

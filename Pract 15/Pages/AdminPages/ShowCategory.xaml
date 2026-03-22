@@ -8,7 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
         Title="Управление Категориями"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
-      Loaded="Page_Loaded">
+      Loaded="Page_Loaded"
+      Background="{StaticResource MainBackgroundBrush}">
 
     <Grid>
         <Grid.RowDefinitions>

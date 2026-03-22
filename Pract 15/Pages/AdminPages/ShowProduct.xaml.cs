@@ -43,14 +43,64 @@ namespace Pract_15.Pages.AdminPages
         private async Task LoadData()
         {
             var context = DBService.Instance.Context;
-            var items = await context.Products.ToListAsync();
+            var items = await context.Products
+                .AsNoTracking()
+                .Include(p => p.Category) 
+                .Include(p => p.Brand)
+                .ToListAsync();
+
             Product.Clear();
             foreach (var i in items) Product.Add(i);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
         private void Add_Click(object sender, RoutedEventArgs e) => NavigationService?.Navigate(new ProductAddOrEdit());
-        private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedProduct?.Name}");
+        private async void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedProduct == null)
+            {
+                MessageBox.Show("Сначала выберите товар в списке!");
+                return;
+            }
+
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить товар: {SelectedProduct.Name}?",
+                "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var context = DBService.Instance.Context;
+
+                    var productToDelete = await context.Products
+                        .Include(p => p.Tags) 
+                        .FirstOrDefaultAsync(p => p.Id == SelectedProduct.Id);
+
+                    if (productToDelete != null)
+                    {
+                        productToDelete.Tags.Clear();
+
+                        context.Products.Remove(productToDelete);
+
+                        await context.SaveChangesAsync();
+
+                        context.ChangeTracker.Clear();
+
+                        Product.Remove(SelectedProduct);
+                        MessageBox.Show("Товар успешно удален.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}\n{ex.InnerException?.Message}");
+
+                    foreach (var entry in DBService.Instance.Context.ChangeTracker.Entries())
+                    {
+                        entry.State = EntityState.Detached;
+                    }
+                }
+            }
+        }
         private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => NavigationService?.Navigate(new ProductAddOrEdit(SelectedProduct));
 
         private void TagAddToProducr_Click(object sender, RoutedEventArgs e)

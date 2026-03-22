@@ -49,7 +49,43 @@ namespace Pract_15.Pages.AdminPages
         
         private void Back_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
         private void Add_Click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new TagAddOrEdit());
-        private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedTag?.Name}");
+        private async void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedTag == null)
+            {
+                MessageBox.Show("Сначала выберите тег в списке!");
+                return;
+            }
+
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить тег: {SelectedTag.Name}?",
+                "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var context = DBService.Instance.Context;
+
+                    var tagToDelete = await context.Tags.FindAsync(SelectedTag.Id);
+
+                    if (tagToDelete != null)
+                    {
+                        context.Tags.Remove(tagToDelete);
+                        await context.SaveChangesAsync();
+
+                        context.ChangeTracker.Clear();
+                        Tags.Remove(SelectedTag);
+
+                        MessageBox.Show("Тег успешно удален.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}");
+                    DBService.Instance.Context.ChangeTracker.Clear();
+                }
+            }
+        }
         private void Edit_DoubleClick(object sender, MouseButtonEventArgs e) => NavigationService.Navigate(new TagAddOrEdit(SelectedTag));
 
 

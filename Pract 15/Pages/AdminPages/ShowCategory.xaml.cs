@@ -52,7 +52,42 @@ namespace Pract_15.Pages.AdminPages
         {
             NavigationService?.Navigate(new CategoryAddOrEdit());
         }
-        private void Delete_Click(object sender, RoutedEventArgs e) => MessageBox.Show($"Удалить категорию: {SelectedCategoty?.Name}");
+        private async void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedCategoty == null)
+            {
+                MessageBox.Show("Сначала выберите категорию в списке!");
+                return;
+            }
+
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить категорию: {SelectedCategoty.Name}?",
+                "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var context = DBService.Instance.Context;
+                    var categoryToDelete = await context.Categories.FindAsync(SelectedCategoty.Id);
+
+                    if (categoryToDelete != null)
+                    {
+                        context.Categories.Remove(categoryToDelete);
+                        await context.SaveChangesAsync();
+
+                        context.ChangeTracker.Clear();
+                        Category.Remove(SelectedCategoty);
+
+                        MessageBox.Show("Категория успешно удалена.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}\nВозможно, категория используется в товарах.");
+                    DBService.Instance.Context.ChangeTracker.Clear();
+                }
+            }
+        }
         private void Edit_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             NavigationService?.Navigate(new CategoryAddOrEdit(SelectedCategoty));

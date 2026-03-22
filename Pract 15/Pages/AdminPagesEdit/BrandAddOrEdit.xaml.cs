@@ -2,7 +2,9 @@
 using Pract15;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,66 +22,93 @@ namespace Pract_15.Pages.AdminPagesEdit
     /// <summary>
     /// Логика взаимодействия для BrandAddOrEdit.xaml
     /// </summary>
-    public partial class BrandAddOrEdit : Page
+    public partial class BrandAddOrEdit : Page, INotifyPropertyChanged 
     {
         private Brand _editingBrand;
+        private string _itemName;
+
+        public string ItemName
+        {
+            get => _itemName;
+            set { _itemName = value; OnPropertyChanged(); }
+        }
 
         public BrandAddOrEdit(Brand brand = null)
         {
             InitializeComponent();
-            if (brand != null)
+            _editingBrand = brand;
+
+            if (_editingBrand != null)
             {
-                _editingBrand = brand;
+                ItemName = _editingBrand.Name;
                 Title = "Редактирование бренда";
-                txtName.Text = brand.Name;
             }
             else
             {
-                Title = "Добавление юренда";
+                Title = "Добавление бренда";
             }
-            txtName.Focus();
+
+            DataContext = this;
         }
 
         private async void Ok_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            if (Validation.GetHasError(txtName))
             {
-                MessageBox.Show("Название не может быть пустым.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Исправьте ошибки в поле!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ItemName))  
+            {
+                MessageBox.Show("Название не может быть пустым.");
                 return;
             }
 
             try
             {
                 var context = DBService.Instance.Context;
-                string newName = txtName.Text.Trim();
+                context.ChangeTracker.Clear();
 
                 if (_editingBrand == null)
                 {
-                    var newCategory = new Brand { Name = newName };
-                    context.Brands.Add(newCategory);
-                    await context.SaveChangesAsync();
+                    int maxId = 0;
+                    if (context.Brands.Any())
+                        maxId = (int)context.Brands.Max(b => b.Id);
+
+                    var newBrand = new Brand
+                    {
+                        Id = maxId + 1,
+                        Name = ItemName.Trim() 
+                    };
+                    context.Brands.Add(newBrand);
                 }
                 else
                 {
-                    var category = await context.Categories.FindAsync(_editingBrand.Id);
-                    if (category != null)
+                    var brand = await context.Brands.FindAsync(_editingBrand.Id);
+                    if (brand != null)
                     {
-                        category.Name = newName;
-                        await context.SaveChangesAsync();
-                        _editingBrand.Name = newName;
+                        brand.Name = ItemName.Trim(); 
                     }
                 }
+
+                await context.SaveChangesAsync();
+                context.ChangeTracker.Clear();
                 NavigationService?.GoBack();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сохранения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Ошибка сохранения: {ex.Message}");
+                DBService.Instance.Context.ChangeTracker.Clear();
             }
         }
 
-        private void Cancel_Click(object sender, RoutedEventArgs e)
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
-            NavigationService?.GoBack();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
     }
 }

@@ -20,5 +20,15 @@ namespace Pract_15
         {
             InitializeComponent();
         }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            var page = e.Content as Page;
+            if (page != null)
+            {
+                this.Title = page.Title;
+            }
+        }
+
     }
 }

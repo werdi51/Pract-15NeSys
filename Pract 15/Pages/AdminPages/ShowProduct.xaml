@@ -8,7 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Управление товарами"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
-      Loaded="Page_Loaded">
+      Loaded="Page_Loaded"
+      Background="{StaticResource MainBackgroundBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -26,6 +27,7 @@
         <ListView Grid.Row="1" 
           x:Name="productsListView"
           ItemsSource="{Binding Product}"
+          SelectedItem="{Binding SelectedProduct, UpdateSourceTrigger=PropertyChanged}"
           MouseDoubleClick="Edit_DoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>

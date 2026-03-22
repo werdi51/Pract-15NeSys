@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pract_15"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+        Title="программа" Height="450" Width="800" WindowState="Maximized"
+        Background="{StaticResource MainBackgroundBrush}">
     <Grid>
-        <Frame Source="Pages/Autorisation.xaml" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" 
+       Source="Pages/Autorisation.xaml" 
+       NavigationUIVisibility="Hidden" 
+       Navigated="MainFrame_Navigated"/>
     </Grid>
 </Window>

@@ -71,7 +71,7 @@ namespace Pract_15.Pages
             set { _sortBy = value; OnPropertyChanged(); ApplySorting(); }
         }
 
-        public int ProductsCount => ProductsView?.Cast<object>().Count() ?? 0;
+        public int ProductsCount => _allProducts?.Count ?? 0;
 
         public MainForm(bool admin)
         {
@@ -111,21 +111,18 @@ namespace Pract_15.Pages
             {
                 var context = DBService.Instance.Context;
 
-                // Загружаем товары с категориями и брендами
                 _allProducts = await context.Products
                     .Include(p => p.Category)
                     .Include(p => p.Brand)
-                    .Include(p => p.Tags) // <--- ВОТ ТУТ
+                    .Include(p => p.Tags) 
                     .ToListAsync();
 
-                // Категории с пунктом "Все"
                 var categories = await context.Categories.ToListAsync();
                 Categories.Clear();
                 Categories.Add(new Category { Id = -1, Name = "Все" });
                 foreach (var cat in categories)
                     Categories.Add(cat);
 
-                // Бренды с пунктом "Все"
                 var brands = await context.Brands.ToListAsync();
                 Brands.Clear();
                 Brands.Add(new Brand { Id = -1, Name = "Все" });
@@ -151,7 +148,6 @@ namespace Pract_15.Pages
         {
             if (obj is not Product p) return false;
 
-            // Поиск
             if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
                 bool match = (p.Name != null && p.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)) ||
@@ -159,19 +155,16 @@ namespace Pract_15.Pages
                 if (!match) return false;
             }
 
-            // Категория
             if (SelectedCategoryId.HasValue && SelectedCategoryId.Value != -1)
             {
                 if (p.CategoryId != SelectedCategoryId.Value) return false;
             }
 
-            // Бренд
             if (SelectedBrandId.HasValue && SelectedBrandId.Value != -1)
             {
                 if (p.BrandId != SelectedBrandId.Value) return false;
             }
 
-            // Цена от
             if (!string.IsNullOrWhiteSpace(FilterPriceFrom))
             {
                 if (double.TryParse(FilterPriceFrom, out double from))
@@ -180,7 +173,6 @@ namespace Pract_15.Pages
                 }
             }
 
-            // Цена до
             if (!string.IsNullOrWhiteSpace(FilterPriceTo))
             {
                 if (double.TryParse(FilterPriceTo, out double to))

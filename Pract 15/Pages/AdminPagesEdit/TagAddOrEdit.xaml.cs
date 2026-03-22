@@ -40,28 +40,42 @@ namespace Pract_15.Pages.AdminPagesEdit
                 return;
             }
 
-            var context = DBService.Instance.Context;
-
             try
             {
+                var context = DBService.Instance.Context;
+                context.ChangeTracker.Clear();
+
                 if (_currentTag == null)
                 {
-                    var newTag = new Tag { Name = TagName };
+                    int maxId = 0;
+                    if (context.Tags.Any())
+                        maxId = (int)context.Tags.Max(t => t.Id);
+
+                    var newTag = new Tag
+                    {
+                        Id = maxId + 1,
+                        Name = TagName
+                    };
                     context.Tags.Add(newTag);
                 }
                 else
                 {
-                    _currentTag.Name = TagName;
-                    context.Tags.Update(_currentTag);
+                    var tag = await context.Tags.FindAsync(_currentTag.Id);
+                    if (tag != null)
+                    {
+                        tag.Name = TagName;
+                    }
                 }
 
                 await context.SaveChangesAsync();
+                context.ChangeTracker.Clear();
                 MessageBox.Show("Данные сохранены!");
                 NavigationService.GoBack();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
+                DBService.Instance.Context.ChangeTracker.Clear();
             }
         }
 
