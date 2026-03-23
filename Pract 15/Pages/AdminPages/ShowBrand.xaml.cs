@@ -51,7 +51,7 @@ namespace Pract_15.Pages.AdminPages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка загрузки: {ex.Message}");
+                MessageBox.Show($"Ошибка {ex.Message}");
             }
         }
 
@@ -69,12 +69,12 @@ namespace Pract_15.Pages.AdminPages
         {
             if (SelectedBrand == null)
             {
-                MessageBox.Show("Выберите бренд для удаления.");
+                MessageBox.Show("Выберите бренд");
                 return;
             }
 
-            var result = MessageBox.Show($"Вы уверены, что хотите удалить бренд: {SelectedBrand.Name}?",
-                "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить {SelectedBrand.Name}?",
+                "давай", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -91,12 +91,12 @@ namespace Pract_15.Pages.AdminPages
                         context.ChangeTracker.Clear();
                         Brands.Remove(SelectedBrand);
 
-                        MessageBox.Show("Бренд удален.");
+                        MessageBox.Show("Бренд удален");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка удаления: {ex.Message}");
+                    MessageBox.Show($"Ошибка {ex.Message}");
                     DBService.Instance.Context.ChangeTracker.Clear();
                 }
             }

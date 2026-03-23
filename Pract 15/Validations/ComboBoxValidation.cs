@@ -15,7 +15,13 @@ namespace Pract_15.Validations
             if (value == null)
                 return new ValidationResult(false, "Выберите значение из списка");
 
+            //if (value == null || string.IsNullOrWhiteSpace(value.ToString()) || value.ToString() == "0")
+            //    return new ValidationResult(false, "Выберите значение из списка");
+
+
             return ValidationResult.ValidResult;
         }
+    
     }
 }
+

@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Pract_15.Pages.AdminPagesEdit
 {
@@ -52,16 +53,31 @@ namespace Pract_15.Pages.AdminPagesEdit
 
                 OnPropertyChanged(string.Empty);
             }
+            TriggerValidation(txtName, TextBox.TextProperty);
+            TriggerValidation(txtDescription, TextBox.TextProperty);
+            TriggerValidation(txtPrice, TextBox.TextProperty);
+            TriggerValidation(txtStock, TextBox.TextProperty);
+            TriggerValidation(txtRating, TextBox.TextProperty);
+            TriggerValidation(cmbCategory, ComboBox.SelectedValueProperty);
+            TriggerValidation(cmbBrand, ComboBox.SelectedValueProperty);
+
         }
 
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Validation.GetHasError(txtName)  ||Validation.GetHasError(txtPrice)||
-                Validation.GetHasError(txtStock) || Validation.GetHasError(cmbCategory))
+            if (Validation.GetHasError(txtName) ||
+                Validation.GetHasError(txtDescription) ||
+                Validation.GetHasError(txtPrice) ||
+                Validation.GetHasError(txtStock) ||
+                Validation.GetHasError(txtRating) ||
+                Validation.GetHasError(cmbCategory) ||
+                Validation.GetHasError(cmbBrand))
             {
-                MessageBox.Show("Пожалуйста, исправьте ошибки валидации.");
+                MessageBox.Show("Пожалуйста, исправьте ошибки валидации");
                 return;
             }
+
+
 
             try
             {
@@ -131,8 +147,13 @@ namespace Pract_15.Pages.AdminPagesEdit
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка загрузки списков: {ex.Message}");
+                MessageBox.Show($"Ошибка {ex.Message}");
             }
+        }
+        private void TriggerValidation(DependencyObject target, DependencyProperty property)
+        {
+            var binding = BindingOperations.GetBindingExpression(target, property);
+            binding?.UpdateSource(); 
         }
     }
 }

@@ -56,12 +56,12 @@ namespace Pract_15.Pages.AdminPages
         {
             if (SelectedCategoty == null)
             {
-                MessageBox.Show("Сначала выберите категорию в списке!");
+                MessageBox.Show("выберите категорию");
                 return;
             }
 
-            var result = MessageBox.Show($"Вы уверены, что хотите удалить категорию: {SelectedCategoty.Name}?",
-                "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var result = MessageBox.Show($"Вы уверены удалить {SelectedCategoty.Name}?",
+                "давай", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -78,12 +78,12 @@ namespace Pract_15.Pages.AdminPages
                         context.ChangeTracker.Clear();
                         Category.Remove(SelectedCategoty);
 
-                        MessageBox.Show("Категория успешно удалена.");
+                        MessageBox.Show("Категория удалена.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при удалении: {ex.Message}\nВозможно, категория используется в товарах.");
+                    MessageBox.Show($"Ошибка  {ex.Message}\n");
                     DBService.Instance.Context.ChangeTracker.Clear();
                 }
             }

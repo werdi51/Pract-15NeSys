@@ -9,7 +9,8 @@
       Title="добавление брендов"
       Background="{StaticResource MainBackgroundBrush}"
       xmlns:validators="clr-namespace:Pract_15.Validations"
-      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      Loaded="Page_Loaded">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -31,7 +32,7 @@
             <ItemsControl ItemsSource="{Binding ElementName=txtName, Path=(Validation.Errors)}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Style="{StaticResource error}" Text="{Binding ErrorContent}" HorizontalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource error}" Text="{Binding ErrorContent}" HorizontalAlignment="Center" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

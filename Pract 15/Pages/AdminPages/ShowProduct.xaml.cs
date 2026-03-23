@@ -63,8 +63,8 @@ namespace Pract_15.Pages.AdminPages
                 return;
             }
 
-            var result = MessageBox.Show($"Вы уверены, что хотите удалить товар: {SelectedProduct.Name}?",
-                "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var result = MessageBox.Show($"Вы уверены удал ить {SelectedProduct.Name}?",
+                "давай", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -87,12 +87,12 @@ namespace Pract_15.Pages.AdminPages
                         context.ChangeTracker.Clear();
 
                         Product.Remove(SelectedProduct);
-                        MessageBox.Show("Товар успешно удален.");
+                        MessageBox.Show("Товар удален.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при удалении: {ex.Message}\n{ex.InnerException?.Message}");
+                    MessageBox.Show($"Ошибка  {ex.Message}\n{ex.InnerException?.Message}");
 
                     foreach (var entry in DBService.Instance.Context.ChangeTracker.Entries())
                     {
@@ -113,7 +113,7 @@ namespace Pract_15.Pages.AdminPages
             }
             else
             {
-                MessageBox.Show("Сначала выберите товар в списке!");
+                MessageBox.Show("Сначала выбери товар");
             }
         }
     }

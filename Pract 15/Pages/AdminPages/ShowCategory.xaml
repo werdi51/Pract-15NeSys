@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Pract_15.Pages.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-        Title="Управление Категориями"
+      Title="Управление Категориями"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
       Loaded="Page_Loaded"
       Background="{StaticResource MainBackgroundBrush}">

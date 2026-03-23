@@ -9,7 +9,8 @@
       Title="Добавление категории"
       xmlns:validators="clr-namespace:Pract_15.Validations"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
-      Background="{StaticResource MainBackgroundBrush}">
+      Background="{StaticResource MainBackgroundBrush}"
+      Loaded="Page_Loaded">
 
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="error">

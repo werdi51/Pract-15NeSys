@@ -10,7 +10,8 @@
       Title="Товар"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
       Loaded="Page_Loaded"
-      Background="{StaticResource MainBackgroundBrush}">
+      Background="{StaticResource MainBackgroundBrush}"
+      >
 
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="error">
@@ -157,8 +158,22 @@
 
         <Label Grid.Row="6" Grid.Column="0" Content="Бренд:"/>
         <StackPanel Grid.Row="6" Grid.Column="1">
-            <ComboBox Name="cmbBrand" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="5" 
-                  SelectedValue="{Binding BrandId, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox Name="cmbBrand" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="5">
+                <ComboBox.SelectedValue>
+                    <Binding Path="BrandId" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validators:ComboBoxValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.SelectedValue>
+            </ComboBox>
+            <ItemsControl ItemsSource="{Binding ElementName=cmbBrand, Path=(Validation.Errors)}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource error}" Text="{Binding ErrorContent}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">

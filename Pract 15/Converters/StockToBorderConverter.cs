@@ -12,31 +12,27 @@ namespace Pract_15.Converters
 {
     public class StockToBorderConverter : IValueConverter
     {
-        private static readonly SolidColorBrush WarningBrush =
-            new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffd129"));
-
-        private static readonly SolidColorBrush DefaultBrush = Brushes.DarkGray;
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            double stock = 0;
-            if (value is double d) stock = d;
+            long stock = System.Convert.ToInt64(value);
 
-            if (stock < 10)
+            //if (stock <= 10)
+            //{
+            //    return Brushes.(#ffd129);
+            //}
+
+            if (stock <= 10)
             {
-                return parameter?.ToString() == "Thickness"
-                    ? new Thickness(2) 
-                    : WarningBrush;    
+                var bc = new BrushConverter();
+                return (Brush)bc.ConvertFrom("#ffd129");
             }
 
-            return parameter?.ToString() == "Thickness"
-                ? new Thickness(0, 0, 0, 1)
-                : DefaultBrush;
+            return Brushes.Transparent;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }

@@ -53,12 +53,12 @@ namespace Pract_15.Pages.AdminPages
         {
             if (SelectedTag == null)
             {
-                MessageBox.Show("Сначала выберите тег в списке!");
+                MessageBox.Show(" выберите тег");
                 return;
             }
 
-            var result = MessageBox.Show($"Вы уверены, что хотите удалить тег: {SelectedTag.Name}?",
-                "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var result = MessageBox.Show($"Вы уверены удалить {SelectedTag.Name}?",
+                "Давай", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -76,12 +76,12 @@ namespace Pract_15.Pages.AdminPages
                         context.ChangeTracker.Clear();
                         Tags.Remove(SelectedTag);
 
-                        MessageBox.Show("Тег успешно удален.");
+                        MessageBox.Show("Тег удален.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при удалении: {ex.Message}");
+                    MessageBox.Show($"Ошибка  {ex.Message}");
                     DBService.Instance.Context.ChangeTracker.Clear();
                 }
             }

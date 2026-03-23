@@ -10,7 +10,7 @@
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
       
             xmlns:validators="clr-namespace:Pract_15.Validations"
-
+      Loaded="Page_Loaded"
       Background="{StaticResource MainBackgroundBrush}">
 
     <Grid Margin="20">

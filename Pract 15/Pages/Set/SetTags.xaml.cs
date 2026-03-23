@@ -20,7 +20,7 @@ namespace Pract_15.Pages.Set
     public partial class SetTags : Page
     {
         private Product _product;
-        public string ProductTitle => $"Теги для: {_product.Name}";
+        public string ProductTitle => $"Теги {_product.Name}";
 
         public ObservableCollection<TagSelection> TagItems { get; set; } = new();
 
@@ -79,13 +79,13 @@ namespace Pract_15.Pages.Set
                     }
 
                     await context.SaveChangesAsync();
-                    MessageBox.Show("Теги успешно обновлены!");
+                    MessageBox.Show("Теги доавьоены");
                     NavigationService.GoBack();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сохранения: {ex.Message}");
+                MessageBox.Show($"Ошибк {ex.Message}");
             }
         }
 

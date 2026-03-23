@@ -51,12 +51,16 @@ namespace Pract_15.Pages.AdminPagesEdit
             DataContext = this; 
             txtName.Focus();
         }
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TriggerValidation(txtName, TextBox.TextProperty);
+        }
 
         private async void Ok_Click(object sender, RoutedEventArgs e)
         {
             if (Validation.GetHasError(txtName))
             {
-                MessageBox.Show("Исправьте ошибки в названии.");
+                MessageBox.Show("Исправьте ошибки");
                 return;
             }
 
@@ -80,7 +84,7 @@ namespace Pract_15.Pages.AdminPagesEdit
                 await context.SaveChangesAsync();
                 NavigationService?.GoBack();
             }
-            catch (Exception ex) { MessageBox.Show($"Ошибка: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Ошибка {ex.Message}"); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -88,5 +92,10 @@ namespace Pract_15.Pages.AdminPagesEdit
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
         private void Cancel_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
+        private void TriggerValidation(DependencyObject target, DependencyProperty property)
+        {
+            var binding = BindingOperations.GetBindingExpression(target, property);
+            binding?.UpdateSource();
+        }
     }
 }

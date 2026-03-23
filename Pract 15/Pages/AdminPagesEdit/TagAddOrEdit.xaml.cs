@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Pract_15.Models;
+using Pract15;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using Pract_15.Models;
-using Pract15;
+using System.Windows.Data;
+using System.Windows.Media;
 
 namespace Pract_15.Pages.AdminPagesEdit
 {
@@ -32,11 +34,15 @@ namespace Pract_15.Pages.AdminPagesEdit
             DataContext = this;
         }
 
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TriggerValidation(txtName, TextBox.TextProperty);
+        }
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TagName))
             {
-                MessageBox.Show("Введите название тега!");
+                MessageBox.Show("Введите тег");
                 return;
             }
 
@@ -69,12 +75,12 @@ namespace Pract_15.Pages.AdminPagesEdit
 
                 await context.SaveChangesAsync();
                 context.ChangeTracker.Clear();
-                MessageBox.Show("Данные сохранены!");
+                MessageBox.Show("Данные сохранены");
                 NavigationService.GoBack();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
+                MessageBox.Show($"Ошибка {ex.Message}");
                 DBService.Instance.Context.ChangeTracker.Clear();
             }
         }
@@ -88,6 +94,12 @@ namespace Pract_15.Pages.AdminPagesEdit
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        private void TriggerValidation(DependencyObject target, DependencyProperty property)
+        {
+            var binding = BindingOperations.GetBindingExpression(target, property);
+            binding?.UpdateSource();
         }
     }
 }

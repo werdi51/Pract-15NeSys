@@ -51,17 +51,22 @@ namespace Pract_15.Pages.AdminPagesEdit
             DataContext = this;
         }
 
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TriggerValidation(txtName, TextBox.TextProperty);
+        }
+
         private async void Ok_Click(object sender, RoutedEventArgs e)
         {
             if (Validation.GetHasError(txtName))
             {
-                MessageBox.Show("Исправьте ошибки в поле!");
+                MessageBox.Show("Исправьте ошибки");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(ItemName))  
             {
-                MessageBox.Show("Название не может быть пустым.");
+                MessageBox.Show("Название не может быть пустым");
                 return;
             }
 
@@ -98,7 +103,7 @@ namespace Pract_15.Pages.AdminPagesEdit
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сохранения: {ex.Message}");
+                MessageBox.Show($"Ошибка {ex.Message}");
                 DBService.Instance.Context.ChangeTracker.Clear();
             }
         }
@@ -110,5 +115,10 @@ namespace Pract_15.Pages.AdminPagesEdit
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e) => NavigationService?.GoBack();
+        private void TriggerValidation(DependencyObject target, DependencyProperty property)
+        {
+            var binding = BindingOperations.GetBindingExpression(target, property);
+            binding?.UpdateSource();
+        }
     }
 }
