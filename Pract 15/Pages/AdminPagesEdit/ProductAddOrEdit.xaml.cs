@@ -73,7 +73,7 @@ namespace Pract_15.Pages.AdminPagesEdit
                 Validation.GetHasError(cmbCategory) ||
                 Validation.GetHasError(cmbBrand))
             {
-                MessageBox.Show("Пожалуйста, исправьте ошибки валидации");
+                MessageBox.Show("ошибки валидации");
                 return;
             }
 

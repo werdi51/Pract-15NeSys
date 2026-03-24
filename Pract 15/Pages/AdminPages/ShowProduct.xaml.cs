@@ -59,7 +59,7 @@ namespace Pract_15.Pages.AdminPages
         {
             if (SelectedProduct == null)
             {
-                MessageBox.Show("Сначала выберите товар в списке!");
+                MessageBox.Show("Сначала выберите товар в!");
                 return;
             }
 

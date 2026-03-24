@@ -27,7 +27,7 @@ namespace Pract_15.Converters
                 return (Brush)bc.ConvertFrom("#ffd129");
             }
 
-            return Brushes.Transparent;
+            return Brushes.Black;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

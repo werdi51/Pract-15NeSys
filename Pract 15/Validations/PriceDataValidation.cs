@@ -16,7 +16,7 @@ namespace Pract_15.Validations
 
             if (string.IsNullOrEmpty(input))
             {
-                return new ValidationResult(false, "Название не может быть пустым");
+                return new ValidationResult(false, "Цена не может быть пустым");
             }
 
             if (!double.TryParse(input, NumberStyles.Any, cultureInfo, out double price))

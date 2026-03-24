@@ -119,7 +119,10 @@ namespace Pract_15.Pages
 
                 var categories = await context.Categories.ToListAsync();
                 Categories.Clear();
+
                 Categories.Add(new Category { Id = -1, Name = "Все" });
+
+
                 foreach (var cat in categories)
                     Categories.Add(cat);
 
@@ -148,13 +151,23 @@ namespace Pract_15.Pages
         {
             if (obj is not Product p) return false;
 
-            if (!string.IsNullOrWhiteSpace(SearchQuery))
+            bool hasFrom = double.TryParse(FilterPriceFrom, out double from);
+            bool hasTo = double.TryParse(FilterPriceTo, out double to);
+
+            if (hasFrom && hasTo && from > to)
             {
-                bool match = (p.Name != null && p.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)) ||
-                             (p.Description != null && p.Description.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase));
-                if (!match) return false;
+                return false; 
             }
 
+            if (!string.IsNullOrWhiteSpace(SearchQuery))
+            {
+                bool match = (p.Name != null && p.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)) || (p.Description != null && p.Description.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase));
+                if (!match)
+                {
+                    return false;
+                }
+
+            }
             if (SelectedCategoryId.HasValue && SelectedCategoryId.Value != -1)
             {
                 if (p.CategoryId != SelectedCategoryId.Value) return false;
@@ -165,22 +178,17 @@ namespace Pract_15.Pages
                 if (p.BrandId != SelectedBrandId.Value) return false;
             }
 
-            if (!string.IsNullOrWhiteSpace(FilterPriceFrom))
-            {
-                if (double.TryParse(FilterPriceFrom, out double from))
-                {
-                    if (p.Price < from) return false;
-                }
-            }
+            if (hasFrom && p.Price < from) return false;
+            if (hasTo && p.Price > to) return false;
 
-            if (!string.IsNullOrWhiteSpace(FilterPriceTo))
+            if(hasFrom && hasTo && from > to)
             {
-                if (double.TryParse(FilterPriceTo, out double to))
-                {
-                    if (p.Price > to) return false;
-                }
+                ErrorMesssage.Text = "'от' не может быть больше чем 'до'";
             }
-
+            else
+            {
+                ErrorMesssage.Text = "";
+            }
             return true;
         }
 
@@ -218,6 +226,18 @@ namespace Pract_15.Pages
 
         private void FilterChanged(object sender, RoutedEventArgs e)
         {
+            bool hasFrom = double.TryParse(FilterPriceFrom, out double from);
+            bool hasTo = double.TryParse(FilterPriceTo, out double to);
+
+            if (hasFrom && hasTo && from > to)
+            {
+                ErrorMesssage.Text = "Цена «от» не может быть больше «до»";
+            }
+            else
+            {
+                ErrorMesssage.Text = ""; 
+            }
+
             ProductsView?.Refresh();
             OnPropertyChanged(nameof(ProductsCount));
         }
@@ -241,11 +261,16 @@ namespace Pract_15.Pages
             ProductsView?.Refresh();
             OnPropertyChanged(nameof(ProductsCount));
         }
-
+         
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Autorisation());
         }
     }
 }

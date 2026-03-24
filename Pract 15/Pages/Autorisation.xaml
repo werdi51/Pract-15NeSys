@@ -4,15 +4,35 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pract_15.Pages"
+      xmlns:validators="clr-namespace:Pract_15.Validations"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="авторизаүиә"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
       Background="{StaticResource MainBackgroundBrush}" Cursor="Hand">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label FontSize="40" Content="Вход" HorizontalAlignment="Center"/>
-            <TextBox x:Name="ADMIN" Margin="10" Width="300" FontSize="20"/>
+
+            <TextBox x:Name="ADMIN" Margin="10" Width="300" FontSize="20">
+                <TextBox.Text>
+                    <Binding Path="AdminPassword" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validators:PasswordValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <ItemsControl ItemsSource="{Binding ElementName=ADMIN, Path=(Validation.Errors)}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Foreground="Red" HorizontalAlignment="Center" Text="{Binding ErrorContent}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
             <Button Content="Войти как админ" FontSize="20" Margin="10" Name="Admin" Click="Admin_Click"/>
             <Button Content="Войти как гость" FontSize="20" Margin="10" Name="Guest" Click="Guest_Click"/>
         </StackPanel>

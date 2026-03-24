@@ -73,7 +73,7 @@ namespace Pract_15.Pages.AdminPages
                 return;
             }
 
-            var result = MessageBox.Show($"Вы уверены, что хотите удалить {SelectedBrand.Name}?",
+            var result = MessageBox.Show($"удалить {SelectedBrand.Name}?",
                 "давай", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)

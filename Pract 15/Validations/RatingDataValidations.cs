@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace Pract_15.Validations
@@ -15,13 +12,29 @@ namespace Pract_15.Validations
             string input = value?.ToString().Trim();
 
             if (string.IsNullOrEmpty(input))
-                return new ValidationResult(false, "Рейтинг не может быть пустым");
+                return new ValidationResult(false, "Поле не может быть пустым");
 
-            if (!double.TryParse(input, NumberStyles.Any, cultureInfo, out double rating))
-                return new ValidationResult(false, "Введите корректное число ");
+            int separatorsCount = 0;
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c)) continue; 
 
-            if (rating < 0 || rating > 5)
-                return new ValidationResult(false, "Рейтинг должен быть от 0 до 5");
+                if (c == '.' || c == ',')
+                {
+                    separatorsCount++;
+                    continue;
+                }
+
+                return new ValidationResult(false, "Разрешены только цифры и точка/запятая");
+            }
+
+            if (separatorsCount > 1)
+                return new ValidationResult(false, "Слишком много точек или запятых");
+
+            if (double.Parse(input) < 1 || double.Parse(input) > 5)
+            {
+                return new ValidationResult(false, "не меньше 1 и не больше 5");
+            }
 
             return ValidationResult.ValidResult;
         }

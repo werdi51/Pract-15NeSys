@@ -1,29 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Pract_15.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для Autorisation.xaml
-    /// </summary>
     public partial class Autorisation : Page
     {
+        public string AdminPassword { get; set; }
+
         public Autorisation()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void Guest_Click(object sender, RoutedEventArgs e)
@@ -33,15 +21,16 @@ namespace Pract_15.Pages
 
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ADMIN.Text))
+            ADMIN.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
+
+            if (Validation.GetHasError(ADMIN))
             {
-                MessageBox.Show("Введите данные для входа как админ");
                 return;
             }
 
-            if (ADMIN.Text != "1234")
+            if (AdminPassword != "1234")
             {
-                MessageBox.Show("Введите корретные данные для входа как админ");
+                MessageBox.Show("Введите корректные данные для входа как админ");
             }
             else
             {
